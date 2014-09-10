@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <LINK REL=StyleSheet HREF="/css/font-awesome.css" TYPE="text/css" MEDIA=screen>
+  <LINK REL=StyleSheet HREF="/css/style.css" TYPE="text/css" MEDIA=screen>
+  <LINK REL="SHORTCUT ICON" HREF="/favicon.ico">
+</head>
+
+<body>
+  
+<div id="wrapper">
+  <div class="container">
+    <div id="header" style="clear: both;text-align: right;">
+      <div style="float:left;">
+        <a id="me" href="/index.html" style="font-size: 50px;font-weight:bold;">Jared Wright</a>
+      </div>
+    </div>
+    
+    
+    <!--<div id='nav'>
+      <a href='/index.html'>Home</a>
+    </div>-->
+    <br>
+    <hr>
+    <section class="content">
+  <title>Use pagen.js to Create + Deploy node.js applications on heroku</title>
+  <section class="byline">
+  	<p id='title'>
+    Use pagen.js to Create + Deploy node.js applications on heroku
+  	</p>
+    April 18, 2013
+    <br><br>
+    
+    <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+    <a href="https://twitter.com/share" class="twitter-share-button" data-lang="en">Tweet</a>
+   <g:plusone size='medium'></g:plusone>
+    <a href="http://www.reddit.com/submit" onclick="window.location = 'http://www.reddit.com/submit?url=' + encodeURIComponent(window.location); return false"> <img src="http://www.reddit.com/static/spreddit7.gif" alt="submit to reddit" border="0" /> </a>
+
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+    
+</section>
+
+  <p>A couple of weeks ago I created pagen.js to make setting up a website with node.js faster. In this post, I will explain how you can use pagen.js to quickly deploy to heroku. the first thing you have to do is generate one of the pagen.js templates.</p>
+
+<p>note: You must have the heroku toolbelt and node/npm install to continue with this tutorial</p>
+
+<p>Pagen.js gives you quite a few options when generating a website; however, all of the websites use the Express.js web framework. You can generate a Mongodb-based blog, a twitter bootstrap website, or just the default static Express.js website. In this tutorial, I will be deploying the default website.</p>
+
+<p>First Steps</p>
+
+<pre><code>$ npm install pagen -g
+
+$ pagen blue --heroku my_directory
+</code></pre>
+
+<p>The first line of code will install pagen.js in the directory were &lsquo;node_modules&rsquo; is located in. The next will actually generate the code in your desired directory (my_directory). The &lsquo;&ndash;heroku&rsquo; argument is what creates the shell script to initialize heroku and git in your directory. I picked blue since that&rsquo;s my favorite of the default colors; however, you can pick whatever color scheme you want&ndash; see theREADME.md for more information on color selection.</p>
+
+<p>At this point, all you really have to do is initialize the heroku app and commit/push to github.</p>
+
+<p>Final Steps</p>
+
+<pre><code>$ heroku create
+
+$ git commit -m "first commit'
+
+$ git push heroku master
+</code></pre>
+
+<p>Conclusion</p>
+
+<p>There, with only a few command, you have your node.js server running on a heroku stack.
+To learn more about pagen.js and my other projects, you can view my github.</p>
+
+
+</section>
+
+<div style="border-radius: 5px;font-size: 24px; margin-bottom: 20px;"><div id='cudos_button'></div><script type='text/javascript' >url = document.URL;iframe = document.createElement('IFRAME'); iframe.setAttribute('src', 'http://cudos-io.herokuapp.com/btn/fEq66RWwSGQgGe7Faioaj0pPV6PicXrg?url='+url);iframe.style.minWidth = 120+'px'; iframe.style.height = 60+'px'; iframe.frameBorder='0';iframe.style.name='The best blog on the interwebs'; document.getElementById('cudos_button').appendChild(iframe); </script></div>
+
+    <hr>
+  </div>
+  <div id="footer" class="hidden-print">
+    <section class="meta">
+      <div class="container">
+      <a href="mailto:jawerty210@gmail.com">
+        Email&nbsp;
+      </a>|
+      <a href="https://docs.google.com/document/d/1HRgiW0uo2yUMENbu3WHkPcLbPxc7YaC9BXK7Nr6dX7M/pub">
+        Resume&nbsp;
+      </a>|
+      <a href="https://github.com/jawerty">Github&nbsp; </a>|
+      <a href="http://www.linkedin.com/in/jawerty/">LinkedIn&nbsp; </a>|
+      <a href="http://twitter.com/jawerty">Twitter</a>
+      </div>
+    </section>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,42 @@
+* {
+	font-family: sans-serif;
+	font-size: 18px;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	color: inherit;
+} 
+
+h1 {
+	font-family: helvetica;
+	font-size: 25px;
+}
+
+#title {
+	font-family: helvetica;
+	font-size: 36px;
+	padding:none;
+}
+
+code {
+    white-space: pre-wrap;
+    display: block;
+    padding: 5px;
+    font-family: "Lucida Grande";
+}
+
+pre {
+	border: 1px solid #ccc;
+    background-color: #eee;
+}
+
+hr {
+	color:#aaa;
+	background-color:#aaa;
+	height:1px;
+	border:none;
+}

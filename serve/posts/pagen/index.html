@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <title>Use pagen.js to Create + Deploy node.js applications on heroku</title>
+  <LINK REL=StyleSheet HREF="/css/style.css" TYPE="text/css" MEDIA=screen>
+  <LINK REL="SHORTCUT ICON" HREF="/favicon.ico">
+</head>
+
+<body>
+<div style='margin: 0 auto;width: 50%;margin-top: 80px;margin-bottom: 80px'>
+  <div class="container">
+    <h1>Jared Wright</h1>
+    <div id='nav'>
+      <a href='/index.html'>Home&nbsp;</a>|<a href='/about.html'>&nbsp;About</a>
+    </div>
+    <hr>
+    <section class="content">
+
+  <section class="byline">
+  	<p id='title'>
+    Use pagen.js to Create + Deploy node.js applications on heroku
+  	</p>
+    April 18, 2013
+    <a href="https://twitter.com/share" class="twitter-share-button" data-lang="en">Tweet</a>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+  </section>
+
+  <p>A couple of weeks ago I created pagen.js to make setting up a website with node.js faster. In this post, I will explain how you can use pagen.js to quickly deploy to heroku. the first thing you have to do is generate one of the pagen.js templates.</p>
+
+<p>note: You must have the heroku toolbelt and node/npm install to continue with this tutorial</p>
+
+<p>Pagen.js gives you quite a few options when generating a website; however, all of the websites use the Express.js web framework. You can generate a Mongodb-based blog, a twitter bootstrap website, or just the default static Express.js website. In this tutorial, I will be deploying the default website.</p>
+
+<p>First Steps</p>
+
+<pre><code>$ npm install pagen -g
+
+$ pagen blue --heroku my_directory
+</code></pre>
+
+<p>The first line of code will install pagen.js in the directory were &lsquo;node_modules&rsquo; is located in. The next will actually generate the code in your desired directory (my_directory). The &lsquo;&ndash;heroku&rsquo; argument is what creates the shell script to initialize heroku and git in your directory. I picked blue since that&rsquo;s my favorite of the default colors; however, you can pick whatever color scheme you want&ndash; see theREADME.md for more information on color selection.</p>
+
+<p>At this point, all you really have to do is initialize the heroku app and commit/push to github.</p>
+
+<p>Final Steps</p>
+
+<pre><code>$ heroku create
+
+$ git commit -m "first commit'
+
+$ git push heroku master
+</code></pre>
+
+<p>Conclusion</p>
+
+<p>There, with only a few command, you have your node.js server running on a heroku stack.
+To learn more about pagen.js and my other projects, you can view my github.</p>
+
+
+</section>
+
+    <hr>
+  </div>
+  <div id="footer" class="hidden-print">
+    <section class="meta">
+      <div class="container">
+          <a href="mailto:jawerty210@gmail.com">
+            Email&nbsp;
+          </a>|
+          <a href="https://twitter.com/jawerty">
+            Twitter&nbsp;
+          </a>|
+          <a href="https://github.com/jawerty">
+            Github&nbsp;
+          </a>
+      </div>
+    </section>
+  </div>
+</div>
+</body>
+</html>

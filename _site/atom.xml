@@ -1,0 +1,380 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+ <title>Jared Wright</title>
+ <link href="http://jawerty.github.io/atom.xml" rel="self"/>
+ <link href="http://jawerty.github.io/"/>
+ <updated>2014-07-28T10:31:47-04:00</updated>
+ <id>http://jawerty.github.io</id>
+ <author>
+   <name>Jared Wright</name>
+ </author>
+
+ 
+ <entry>
+   <title>New Blog with Jekyll</title>
+   <link href="http://jawerty.github.io/posts/new_jekyll_blog"/>
+   <updated>2013-08-01T00:00:00-04:00</updated>
+   <id>http://jawerty.github.io/posts/new_jekyll_blog</id>
+   <content type="html">&lt;p&gt;This is the official first post with my new jekyll-run blog.&lt;/p&gt;
+
+&lt;p&gt;This is all of course written in markdown.&lt;/p&gt;
+
+&lt;p&gt;This is what the code with look like&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ make awesome
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;That&amp;rsquo;s it I suppose. Thanks for reading.&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Use pagen.js to Create + Deploy node.js applications on heroku</title>
+   <link href="http://jawerty.github.io/posts/pagen"/>
+   <updated>2013-04-18T00:00:00-04:00</updated>
+   <id>http://jawerty.github.io/posts/pagen</id>
+   <content type="html">&lt;p&gt;A couple of weeks ago I created pagen.js to make setting up a website with node.js faster. In this post, I will explain how you can use pagen.js to quickly deploy to heroku. the first thing you have to do is generate one of the pagen.js templates.&lt;/p&gt;
+
+&lt;p&gt;note: You must have the heroku toolbelt and node/npm install to continue with this tutorial&lt;/p&gt;
+
+&lt;p&gt;Pagen.js gives you quite a few options when generating a website; however, all of the websites use the Express.js web framework. You can generate a Mongodb-based blog, a twitter bootstrap website, or just the default static Express.js website. In this tutorial, I will be deploying the default website.&lt;/p&gt;
+
+&lt;p&gt;First Steps&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ npm install pagen -g
+
+$ pagen blue --heroku my_directory
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The first line of code will install pagen.js in the directory were &amp;lsquo;node_modules&amp;rsquo; is located in. The next will actually generate the code in your desired directory (my_directory). The &amp;lsquo;&amp;ndash;heroku&amp;rsquo; argument is what creates the shell script to initialize heroku and git in your directory. I picked blue since that&amp;rsquo;s my favorite of the default colors; however, you can pick whatever color scheme you want&amp;ndash; see theREADME.md for more information on color selection.&lt;/p&gt;
+
+&lt;p&gt;At this point, all you really have to do is initialize the heroku app and commit/push to github.&lt;/p&gt;
+
+&lt;p&gt;Final Steps&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ heroku create
+
+$ git commit -m &quot;first commit&#39;
+
+$ git push heroku master
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Conclusion&lt;/p&gt;
+
+&lt;p&gt;There, with only a few command, you have your node.js server running on a heroku stack.
+To learn more about pagen.js and my other projects, you can view my github.&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>AlienFeed & Developing Command Line Tools with Python</title>
+   <link href="http://jawerty.github.io/posts/alienfeed"/>
+   <updated>2013-02-15T00:00:00-05:00</updated>
+   <id>http://jawerty.github.io/posts/alienfeed</id>
+   <content type="html">&lt;p&gt;I just recently decided to hack together a command line application for fun. I chose python for its readable code and ease of use since I only wanted to code it in a few hours, and not have it take up my whole week. I stumbled upon argparse, a built-in python module for parsing and handling command line arguments. What I wound up creating is a small Reddit client called AlienFeed. With AlienFeed you can return a list of Reddit submissions and open the links in your default browser window. I added a random argument as well that opens a random link in the requested subreddit. What I want accomplish in this post is to quickly demonstrate how one can make a command line tool, like AlienFeed, with python. First off, you of course need a copy of the python distribution, a web browser, a computer that turns on and off, fingers that can type, et cetera. Now that you have a functioning computer, create a file named &amp;lsquo;hello.py&amp;rsquo; (or what ever you want) and save it in the folder of your choice. The command line tool we will make is going to be a barbones app that simply returns your argument with a message like &amp;lsquo;Hello &amp;rsquo;. Now that we defined our app, edit the file, &amp;lsquo;hello.py&amp;rsquo;, with the following code.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;import argparse
+
+parser = argparse.ArgumentParser(description=&#39;say hello to the computer&#39;)
+
+parser.add_argument(&quot;name&quot;, help=&#39;returns a message to the user&#39;)
+
+parser.add_argument(&quot;-c&quot;, &quot;--caps&quot;, help=&#39;Turns the message into all CAPS&#39;)
+
+args = parser.parse_args()
+print args.name
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The code above is an incomplete argument parser since the all caps argument functionality has not been created yet. However, the program currently takes the first argument (name) and prints it out to the console. The second line &amp;lsquo;parser = argpar&amp;hellip;&amp;rsquo; creates the parser essentially, and gives us access to the object ArgumentParser which allows us to define arguments for our parser. The next two lines with &amp;lsquo;parser.add_argument&amp;rsquo; are meant to declare arguments and their usage. Note that the help parameter is used to provide information about the CLI within the &amp;lsquo;-h, &amp;ndash;help&amp;rsquo; arguments. Now run the command below to see what the &amp;lsquo;help&amp;rsquo; output returns.&lt;/p&gt;
+
+&lt;p&gt;Run:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ python hello.py -h
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Output:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;usage: hello.py [-h] [-c CAPS] name
+
+say hello to the computer
+
+positional arguments:
+name returns a message to the user
+
+optional arguments:
+-h, --help show this help message and exit
+-c CAPS, --caps CAPS Turns the message into all CAPS
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Now lets rewrite this code to make it do what we really want it to do.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;import argparse
+
+def main():
+    parser = argparse.ArgumentParser(description=&#39;say hello to the computer&#39;)
+
+    parser.add_argument(&quot;name&quot;, help=&#39;returns a message to the user&#39;)
+
+    parser.add_argument(&quot;-c&quot;, &quot;--caps&quot;, action=&#39;store_true&#39;, help=&#39;Turns the message into all CAPS&#39;)
+
+    args = parser.parse_args()
+
+    msg = &#39;Hello &#39; + args.name
+
+    if args.caps:
+
+        print msg.upper()
+
+    else:
+
+        print msg
+
+if __name__ == &#39;__main__&#39;:
+    main()
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The code above takes the users input and returns it with a message that says &amp;lsquo;Hello &amp;rsquo; in either all caps or no caps. Here is an example of how to use this command line tool.&lt;/p&gt;
+
+&lt;p&gt;Run:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ python hello.py Jared
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Output:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;`Hello Jared`
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Run:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ python hello.py Jared --caps
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Output:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;`HELLO JARED`
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The parameter &amp;ldquo;action=&amp;lsquo;store_true&amp;rsquo;&amp;rdquo;, in our case, is used to make sure that caps takes no argument of its own. Anyway, this is how one could parse command line tools with python. If you have any questions about the post, my projects, or anything programming related, feel free email me at jawerty@gmail.com. And be sure to see my Github if you would like contribute to any of my projects. Goodbye and happy hacking.&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>High School and Hacking</title>
+   <link href="http://jawerty.github.io/posts/highschool_hacking"/>
+   <updated>2013-02-02T00:00:00-05:00</updated>
+   <id>http://jawerty.github.io/posts/highschool_hacking</id>
+   <content type="html">&lt;p&gt;It&amp;rsquo;s 2013, and the thriving subculture of computer developers is at an all time high. From my observations, more and more hackers are coming out of the mix. Loads of programming-related websites and forums (i.e. Hacker News, r/programming, StackOverflow) have become powerful sources for hacker news, information, and most importantly knowledge. It is this evocation of knowledge that is bringing more people to the hacker scene. Whether they believe it to be cool, a money making opportunity, or just a fun hobby, new programmers are flocking to the scene. I, personally, have been noticing this urge for knowledge prevalent at my high school. And so the question comes out; in this new age of programmers, how does hacking and high school come together?&lt;/p&gt;
+
+&lt;p&gt;Well then, let me begin with a little background. I have a computer programming club at my school were I often teach the basics of programming to whoever walks in. And at this club, I see a mixture of two different kinds of students who wish to code; the gamer kind and the &amp;lsquo;I don&amp;rsquo;t know&amp;rsquo; kind. The gamers are among those who want to make hardcore FPS games in the most minimal amount of time, not the easiest to teach, but still attendant. Subsequently, the &amp;lsquo;I don&amp;rsquo;t know&amp;rsquo; students are honestly my favorite of the two. They&amp;rsquo;re just there to learn cool stuff and see what happens, and this hacker mentality they all share is perfect for the high school scene.&lt;/p&gt;
+
+&lt;p&gt;Why is it perfect? I&amp;rsquo;ll tell you. As a high school student I find it hard to get internships and part-time jobs as a programmer, I&amp;rsquo;ve had some offers, but few of my interest. This means I usually have to contribute to an open source project. Personally, and as a student, I prefer working on my own side-projects to make up my time, so I choose to create applications on the side. With the student gamer mentality of learning in the easiest way possible (not all of them are like this obviously), it is not likely that they will create their FPS game, for they are not appreciating the code as much as they are utilizing it. This dilemma gives them the idea that programming is only a means to an end, and with this idea, it is not likely that a hacker will do anything truly wonderful (or be a hacker at all). Since they have to make their own apps on the side, like me, and don&amp;rsquo;t appreciate programming or truly enjoy it, they are forced to give up on their conquest to create a hardcore FPS game. I find that some of the students I teach to code share a quality with those who attempt to learn programming for making money, changing the world, or making the &amp;lsquo;next big thing&amp;rsquo;. This similarity is the need to understand that learning how to program comes with persistence.&lt;/p&gt;
+
+&lt;p&gt;I don&amp;rsquo;t think there is anything wrong with learning to program for money, status, etc., but it all comes with a price; time. What all high school kids have in common is an abundance of time. And I&amp;rsquo;m sure any hacker would agree that time is a programmer&amp;rsquo;s greatest ally, or enemy. What the &amp;lsquo;I don&amp;rsquo;t know&amp;rsquo; students have is an interest in something they know nothing about, which is great. Although they don&amp;rsquo;t have a broad long-term plan for programming, they still have the eagerness. If you are someone who hopes to learn to code for a specific reason, I suggest you have this mentality. Keep your dreams, but love to code. Make programming something you look forward to, and then the success will follow.&lt;/p&gt;
+
+&lt;p&gt;Hacking and high school are an odd mix. You are at an institution that revolves around learning, but your life is surrounded by application. Many high school students these days want to be programmers, and that&amp;rsquo;s awesome. They want to build things, and that&amp;rsquo;s awesome. But the true challenge is getting there. If you learn to love to code, it makes it a whole lot easier, but if you don&amp;rsquo;t love it, or simply can&amp;rsquo;t, then maybe it&amp;rsquo;s not for you. I&amp;rsquo;m just a kid and I have a lot to learn when it comes to programming, but I believe looking forward to how much I have to learn, rather than resenting it, is the secret to furthering my knowledge. HACKING IS FUN WHEN YOU MAKE IT FUN!&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Build REST APIs with Node.js</title>
+   <link href="http://jawerty.github.io/posts/create_rest_api"/>
+   <updated>2013-01-27T00:00:00-05:00</updated>
+   <id>http://jawerty.github.io/posts/create_rest_api</id>
+   <content type="html">&lt;p&gt;Recently, I have been exploring node.js along with express, a minimalistic web framework created by the rather productive TJ Holowaychuck. And even more recently, a few friends and I have been creating a RESTful service to back our future games. Seeing how this minimalistic web framework allows for such a powerful and simplistic implementation of HTTP responses and requests, it serves as the perfect support mechanism for our cloud service. Along with the MongoDB database engine, these tools come together to be quite powerful solutions running the backend of our server. The database driver, Mongoose, a beautifully written implementation of object modelling with MongoDB, is used to make the MongoDB to node.js connection. Now, if you would like to create a RESTful service with these technologies I suggest reading the directions below.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Note: In this tutorial I assume that you already have Node.js (with NPM), Express, and Mongoose installed and ready to run&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Getting started&lt;/li&gt;
+&lt;li&gt;Initialize server&lt;/li&gt;
+&lt;li&gt;Define the API&lt;/li&gt;
+&lt;li&gt;Test the REST API&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;p&gt;First, in the blank directory of your project, type in the following command.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ express
+// create app
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Now that you have an app running express. Edit the package.json file so it resembles the following contents.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;{
+  &quot;description&quot;: &quot;A REST API written in node.js&quot;,
+  &quot;version&quot;: &quot;0.0.1&quot;,
+  &quot;engines&quot;: {
+    &quot;node&quot;: &quot;0.8.x&quot;,
+    &quot;npm&quot;:  &quot;1.1.x&quot;
+  },
+  &quot;scripts&quot;: {
+    &quot;start&quot;: &quot;node app&quot;
+  },
+  &quot;dependencies&quot;: {
+    &quot;express&quot;: &quot;3.0.0rc5&quot;, 
+    &quot;jade&quot;: &quot;*&quot;,
+    &quot;mongoose&quot;:&quot;*&quot; 
+  }
+}
+
+  &quot;name&quot;: &quot;restfulservice&quot;,
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;After the package.json is edited to depend on our desired technologies, run the following commands in order to intialize our server.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ npm install
+
+$ node app
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The output should read something like, &amp;lsquo;Express server listening on port 3000&amp;rsquo;. If so, go to the URL http://localhost:3000 in order to open up the webpage&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Note: you can delete the /views folder if you&amp;rsquo;d like; it is not necessarily needed in this tutorial.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Ok, now that you have a running node.js server, we can start coding the RESTful service. First, we need to Define the API. This example REST API can be used to create, read, edit, and delete posts on a blog, or other written content in the web. There will be only one endpoint, &amp;lsquo;/posts&amp;rsquo;. This endpoint will be used to POST, GET, PUT, and DELETE the posts in our MongoDB database. The delete and put methods will require a query (i.e. ?title=&amp;hellip;) in order to be executed. First off, to get it out of the way, we want to create our posts schema in a file called database.js. In the root of your directory (where the app.js file should be), create the file database.js, which will contain the following code.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;var mongoose = require(&#39;mongoose&#39;)
+var Schema = mongoose.Schema
+    ,ObjectId = Schema.ObjectId;
+var db_url = &quot;mongodb://localhost:27017/your_database_name&quot;
+var db = mongoose.connect(db_url);
+
+var postSchema = new Schema({
+    id: ObjectId,
+    title: String,
+    content: String
+})
+
+var post = db.model(&#39;post&#39;, postSchema);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The code above defines a very simple Schema which maps to the collection your posts will be stored in. The &amp;lsquo;db_url&amp;rsquo; variable is made to point towards your local database, which will be created when you run the server. The ObjectId is a value specific to the collection. The implementation of this Schema will be show below, along with the rest of the API.&lt;/p&gt;
+
+&lt;p&gt;In the app.js file, were the API will be written, insert the following code at the top of the page.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;var mongoose = require(&#39;mongoose&#39;);
+
+var db = require(&#39;./database&#39;);
+var post = mongoose.model(&#39;post&#39;);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This code imports mongoose, (which should have been installed with the &amp;lsquo;npm install&amp;rsquo; command) the database file you created named database.js, and assigns the post model defined in database.js to the variable post. This should finalize the MongoDB setup. Now the API&amp;rsquo;s functionality can be programmed. Once again, the REST API we&amp;rsquo;re making comprises of creating, reading, editing, and deleting posts.&lt;/p&gt;
+
+&lt;p&gt;Here is the final code that defines our methods. (copy and paste into the app.js file)&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;/**
+
+ * Module dependencies.
+ */
+var mongoose = require(&#39;mongoose&#39;);
+var db = require(&#39;./database&#39;);
+var post = mongoose.model(&#39;post&#39;);
+var express = require(&#39;express&#39;)
+  , routes = require(&#39;./routes&#39;)
+  , user = require(&#39;./routes/user&#39;)
+  , http = require(&#39;http&#39;)
+  , path = require(&#39;path&#39;);
+
+var app = express();
+
+app.configure(function(){
+  app.set(&#39;port&#39;, process.env.PORT || 3000);
+  app.set(&#39;views&#39;, __dirname + &#39;/views&#39;);
+  app.set(&#39;view engine&#39;, &#39;jade&#39;);
+  app.use(express.favicon());
+  app.use(express.logger(&#39;dev&#39;));
+  app.use(express.bodyParser());
+  app.use(express.methodOverride());
+  app.use(app.router);
+  app.use(express.static(path.join(__dirname, &#39;public&#39;)));
+});
+
+app.configure(&#39;development&#39;, function(){
+  app.use(express.errorHandler());
+});
+
+app.post(&#39;/posts&#39;, function(req, res){
+  var title = req.body.title;
+  var content = req.body.content;
+  var newPost = post({
+    title: title,
+    content: content
+  });
+
+  newPost.save();
+  res.send(&#39;Post created&#39;);
+});
+
+app.get(&#39;/posts&#39;, function(req, res){
+  post.find({}, function(err, post){
+    if(post){
+      res.send(post);
+    }else{
+      res.send(&#39;No posts in database&#39;);
+    }
+  })
+});
+
+app.put(&#39;/posts&#39;, function(req, res){
+  var content = req.body.content;
+  var title = req.query.title;
+  post.findOne({title: title}, function(err, post){
+    if (post){
+      post.content = content;
+      post.save();
+      res.send(&#39;Post edited&#39;);
+    }else{
+      res.send(&#39;Post doesnt exist&#39;);
+    }
+
+  })
+})
+
+app.delete(&#39;/posts&#39;, function(req, res){
+  var title = req.query.title;
+  post.findOne({title: title}, function(err, post){
+    if(post){
+      post.remove()
+      res.send(&#39;Post removed&#39;)
+    }else{
+      res.send(&#39;Post does not exist&#39;)
+    }
+  })
+
+});
+
+http.createServer(app).listen(app.get(&#39;port&#39;), function(){
+  console.log(&quot;Express server listening on port &quot; + app.get(&#39;port&#39;));
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The app.post(&amp;lsquo;/posts&amp;rsquo;) method creates the post. app.get(&amp;lsquo;/posts&amp;rsquo;) returns a list with all posts in the database. app.put(&amp;lsquo;/posts&amp;rsquo;) requires only a &amp;ldquo;content&amp;rdquo; body and a query with the title of the requested post. And finally, app.delete(&amp;lsquo;/posts&amp;rsquo;)deletes the post requested in the query (the post that matches the title query). To test the RESTful service, you can run the curl commands below in your terminal.&lt;/p&gt;
+
+&lt;p&gt;To create a post&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ curl -i -X POST -H &#39;Content-Type: application/json&#39; -d &#39;{&quot;title&quot;: &quot;mytitle&quot;, &quot;content&quot;: &quot;Edited post&quot;}&#39; http://localhost:3000/posts
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;To read all posts&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ curl -i -X GET http://localhost:3000/posts
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;To edit the content of a post&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ curl -i -X PUT -H &#39;Content-Type: application/json&#39; -d &#39;{&quot;content&quot;: &quot;Edited post&quot;}&#39; http://localhost:3000/posts?title=mytitle
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;To delete a post&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ curl -i -X DELETE http://localhost:3000/posts?title=mytitle
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Now, you can use this REST API however you&amp;rsquo;d like, whether to serve a blog or a todo list. If you have any questions relating to this post, Express, or any of my projects, then please comment below, follow me on Twitter (@jawerty), or simple email me at jawerty210@gmail.com. Farewell, and happy hacking.&lt;/p&gt;
+</content>
+ </entry>
+ 
+
+</feed>

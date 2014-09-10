@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <title>{{ page.title }}</title>
+  <LINK REL=StyleSheet HREF="/css/style.css" TYPE="text/css" MEDIA=screen>
+  <LINK REL="SHORTCUT ICON" HREF="/favicon.ico">
+</head>
+
+<body>
+<div style='margin: 0 auto;width: 50%;margin-top: 80px;margin-bottom: 80px'>
+  <div class="container">
+    <h1>Jared Wright</h1>
+    <div id='nav'>
+      <a href='/index.html'>Home&nbsp;</a>|<a href='/about.html'>&nbsp;About</a>
+    </div>
+    <hr>
+    {{ content }}
+    <hr>
+  </div>
+  <div id="footer" class="hidden-print">
+    <section class="meta">
+      <div class="container">
+          <a href="mailto:jawerty210@gmail.com">
+            Email&nbsp;
+          </a>|
+          <a href="https://twitter.com/{{ site.author.twitter }}">
+            Twitter&nbsp;
+          </a>|
+          <a href="https://github.com/{{ site.author.github }}">
+            Github&nbsp;
+          </a>
+      </div>
+    </section>
+  </div>
+</div>
+</body>
+</html>

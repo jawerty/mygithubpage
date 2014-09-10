@@ -1,0 +1,15 @@
+markdown: rdiscount
+pygments: true
+permalink: /posts/:title
+rdiscount:
+  extensions: [smart]
+title : Jared Wright
+production_url : http://jawerty.github.io
+description: "Student, hacker, programmer, Jared Wright."
+disqus_shortname: jawertyblog
+analytics: UA-38539483-3
+author :
+  name : Jared Wright
+  github : jawerty
+  twitter : jawerty
+  email: jawerty210@gmail.com
